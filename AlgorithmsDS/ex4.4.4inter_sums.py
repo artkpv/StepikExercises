@@ -9,7 +9,7 @@ _dump = ""
 https://stepik.org/lesson/Задачи-45970/step/4?course=Алгоритмы-теория-и-практика-Структуры-данных&unit=24123
 
 NEXT
-- Failed test #69. Time limit exceeded 
+- Failed test #69. Time limit exceeded
 
 """
 
@@ -125,7 +125,7 @@ class BstOfSum:
         #info(' sum({:,} -> {:,}, {:,} -> {:,})'.format(l, l2, r, r2))
         #debug(get_tree_string(self.root))
         #assert l2 <= r2, \
-            #"""should not be given an invalid arguments so lastsum is wrong: 
+            #"""should not be given an invalid arguments so lastsum is wrong:
             ##s={:,}, f({:,}) = {:,} <= {:,} = f({:,})\n{}\n{}""" \
             #.format(self.lastsum, l, l2, r2, r, get_tree_string(self.root), _dump)
         s = self._sum(l2, r2)
@@ -151,7 +151,7 @@ class BstOfSum:
             self.root = z
         else:
             # go to the first empty place, insert a new node and splay it to the top:
-            # should take O(log(n)) 
+            # should take O(log(n))
             v = self.root
             while True:
                 if v.key == k:
@@ -197,7 +197,7 @@ class BstOfSum:
                 v = v.l
         if not v or v.key != k:
             return False
-        
+
         self._splay(v)  # to put at root
         #debug(' (delete) after splay:\n{}'.format(get_tree_string(v)))
         assert v.p == None
@@ -214,7 +214,6 @@ class BstOfSum:
         return True
 
     def _find(self, v, k):
-        v = self.root
         while v != None:
             if v.key == k:
                 break  # found
@@ -242,7 +241,7 @@ class BstOfSum:
         """
         if not self.root:
             return 0
-        root_sum = self.root.sum if self.root else 0
+        root_sum = self.root.sum
         t1, t2 = self._split(self.root, l - 1)  # lt_l < l <= ge_l
         assert not t1 or not t1.p
         assert not t2 or not t2.p
@@ -325,7 +324,7 @@ class BstOfSum:
 
     def _merge_with_root(self, v, t1, t2):  # less than, greater than
         """
-        Merges two trees 
+        Merges two trees
         """
         #assert v != None
         #assert t1 == None or t1.key < v.key
@@ -379,7 +378,7 @@ class BstOfSum:
             self._splay(t1_max)
             #debug(" (merge) after splay t1_max:{}".format(get_tree_string(t1_max)))
             assert not t1_max.p
-            assert not t1_max.r 
+            assert not t1_max.r
             t1_max.r = t2
             t2.p = t1_max
             t1_max.refresh_sum()
@@ -393,7 +392,7 @@ class BstOfSum:
 
     def _transplant(self, u, v):
         """
-        Transplants v at u's place 
+        Transplants v at u's place
         """
         if u.p:
             if u.p.r == u:
@@ -509,5 +508,5 @@ for i in range(n):
         print(t.sum(int(call[1]), int(call[2])))
 
 if toPrintDump:
-    pass 
+    pass
     #assert False, _dump

@@ -2,3 +2,14 @@ ConsoleApplicationCppEx3.2.2
 stepik_algo_ds*
 __pycache__
 *.TMP
+
+x64/
+ipch/
+Release/
+Debug/
+
+
+*.VC.opendb
+*.suo
+*.vc.db
+.vs/

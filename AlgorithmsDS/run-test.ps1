@@ -24,7 +24,8 @@ function run-test {
 	Write-Host '        Output:'
 	$out = ""
 	#$inpt | py $script $myargs | tee -Variable out 
-	$inpt | py $script $myargs #| tee -Variable out 
+	#$inpt | py $script $myargs #| tee -Variable out 
+	$inpt | & $script $myargs #| tee -Variable out 
 	if (-not $? ) { exit }
 
 	$out = $out -join "`n"
